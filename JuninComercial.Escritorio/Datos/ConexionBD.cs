@@ -13,16 +13,16 @@ public static class ConexionBD
     {
         var conexion = new MySqlConnection(Cadena);
         conexion.Open();
-        return conexion;
+        return conexion;  //abre la conexion a MYSQL
     }
 
     public static void CerrarSeguro(IDisposable recurso)
     {
-        if (recurso == null) return;
+        if (recurso == null) return;  //aca la cierra
         try
         {
-            recurso.Dispose();
-        }
+            recurso.Dispose(); 
+        }  
         catch
         {
             // Se traga para no tapar la excepción original

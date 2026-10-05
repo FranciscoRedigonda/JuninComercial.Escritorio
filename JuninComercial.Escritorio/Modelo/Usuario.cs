@@ -2,10 +2,10 @@
 
 public class Usuario
 {
-    public int IdLogin { get; set; }
+    public int IdLogin { get; set; } 
     public string Name { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
-    public string UserType { get; set; } = string.Empty;
+    public string UserType { get; set; } = string.Empty; 
 
     public Usuario() { }
 
