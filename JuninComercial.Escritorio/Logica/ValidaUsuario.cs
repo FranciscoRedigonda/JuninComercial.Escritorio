@@ -4,9 +4,9 @@ using JuninComercial.Escritorio.Datos;
 using JuninComercial.Escritorio.Modelo;
 
 public class ValidaUsuario
-{
+{ 
     private readonly loginDAO _dao = new loginDAO();
-    private int _intentosRestantes = 3; 
+    private int _intentosRestantes = 3; //empiece en 3
 
     public int IntentosRestantes => _intentosRestantes; //pregunta cuantos intentos quedan
     public bool EstaBloqueado => _intentosRestantes <= 0; //devuelve true si se quedo sin intentos
@@ -21,17 +21,18 @@ public class ValidaUsuario
 
         var usuario = _dao.Autenticar(name.Trim(), password.Trim()); //le dice al dao q haga la consulta
 
-        if (usuario == null)
+        if (usuario == null) //si el dao devolvio null, la info es incorrecta
         {
-            _intentosRestantes--;
+            _intentosRestantes--; 
 
-            if (EstaBloqueado)
+            if (EstaBloqueado) //si era el ultimo intento
                 throw new AVISOS("Usuario bloqueado por exceder el número máximo de intentos."); 
 
             throw new AVISOS($"Usuario o contraseña incorrectos. Le quedan {_intentosRestantes} intento(s).");
         }
-
+        //login correcto 3
         _intentosRestantes = 3;
+        //devuelve el objeto a la vista, si fue bien
         return usuario;
     }
 }

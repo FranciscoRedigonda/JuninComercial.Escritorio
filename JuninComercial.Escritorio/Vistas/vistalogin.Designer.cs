@@ -92,7 +92,7 @@ partial class vistalogin
         btnIngresar.FlatStyle = FlatStyle.Flat;
         btnIngresar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
         btnIngresar.ForeColor = Color.White;
-        btnIngresar.Location = new Point(90, 252);
+        btnIngresar.Location = new Point(90, 247);
         btnIngresar.Name = "btnIngresar";
         btnIngresar.Size = new Size(350, 38);
         btnIngresar.TabIndex = 5;
@@ -141,6 +141,7 @@ partial class vistalogin
         Name = "vistalogin";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "vistalogin";
+        Load += vistalogin_Load;
         ResumeLayout(false);
         PerformLayout();
     }

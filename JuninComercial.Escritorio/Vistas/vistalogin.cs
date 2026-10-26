@@ -6,11 +6,11 @@ using System.Windows.Forms;
 using JuninComercial.Escritorio.Logica;
 using MySqlConnector;
 
-public partial class vistalogin : Form
+public partial class vistalogin : Form //ventana de windows form
 {
-    private readonly ValidaUsuario _validador = new ValidaUsuario(); //empieza a manejar intentos y validaciones
+    private readonly ValidaUsuario _validador = new ValidaUsuario(); //empieza a manejar intentos y validaciones. no habla con la bd, sino con validausuario
 
-    public vistalogin() //
+    public vistalogin() //abre al crear la ventana
     {
         InitializeComponent();
         lblMensaje.Text = string.Empty;
@@ -29,7 +29,7 @@ public partial class vistalogin : Form
 
             var menu = new MenuPrincipal();
             menu.Show();  //abre menu principal
-            this.Hide();
+            this.Hide();  //oculta el login
         }
         catch (AVISOS ex) //tira los avisos si no se acabaron
         {
@@ -44,8 +44,8 @@ public partial class vistalogin : Form
         }
         catch (MySqlException)
         {
-            MessageBox.Show("No se pudo conectar con la base de datos de la facultad.\nVerificá tu conexión a internet.", 
-                            "Error de Conexión", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            MessageBox.Show("No se pudo conectar con la base de datos de la facultad.\nVerificá tu conexión a internet.",
+                            "Error de Conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 
@@ -56,6 +56,12 @@ public partial class vistalogin : Form
 
     private void txtUsuario_TextChanged(object sender, EventArgs e)
     {
+
+    }
+
+    private void vistalogin_Load(object sender, EventArgs e)
+    {
+
 
     }
 }
